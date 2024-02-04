@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Refurbay</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div id="container">
+    <div id="sidebar">
+        <div id="logoside">
+            <a href="index.html"><img src="https://i.ibb.co/WB3HRGP/Screenshot-20230122-165649-removebg-preview-removebg-preview.png" alt="Logo"></a>
+            <div id="h4"> <h2>ReFurbay Admin</h2></div>
+        </div><hr>
+        <div id="list">
+            <ul>
+                <li><a href="mobile_form.html">POST MOBILE</a></li><hr>
+                <li><a href="furnitureForm.html">POST FURNITURE</a></li><hr>
+                <li><a href="">POST CAR</a></li><hr>
+                <li><a href="">POST BIKES</a></li><hr>
+                <li><a href="">POST SERVICES</a></li><hr>
+                <li><a href="">POST HOME DECOR</a></li><hr>
+                <li><a href="">POST REAL-ESTATE</a></li><hr>
+                <li><a href="">POST ELECTRONICS</a></li><hr>
+                <li><a href="">POST HOME LIFESTYLE</a></li><hr>
+                <li><a href="">POST APPLIANCES</a></li><hr>
+                <li><a href="">POST KITCHEN APPLIANCES</a></li><hr>
+                <li><a href="">POST TOYS & TOOLS</a></li><hr>
+                <li><a href="">POST PETS & PETS CARE</a></li><hr>
+                <li><a href="">POST EVENTS</a></li>
+            </ul>
+        </div>
+       
+    </div>
+    <div id="second_box">
+    <div id="imagebox">
+        <div class="dataimg"><img src="https://cdn3d.iconscout.com/3d/premium/thumb/web-analytics-5733190-4812684.png" alt="Error"></div>
+        <div class="dataimg"><img src="https://static.vecteezy.com/system/resources/previews/008/507/998/original/illustration-of-graph-and-chart-for-data-analytics-3d-render-png.png" alt="Error"></div>
+        <div class="dataimg"><img src="https://static.vecteezy.com/system/resources/previews/008/481/519/original/3d-illustration-web-analytics-icon-png.png" alt="Error"></div>
+    </div>
+    <section>
+        <h1>Refurbay Admin Portal</h1>
+        <div id="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                        <th>Availability</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody id="tbody">
+                    <!-- appending all data here!!!!!!!!!!! -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+</div>
+</body>
+<script>
+    // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+    // $(window).on("load resize ", function () {
+    //     var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+    //     $('#tbl-header').css({ 'padding-right': scrollWidth });
+    // }).resize();
+
+    let addedProduct = JSON.parse(localStorage.getItem("addData")) || [];
+
+    let tbody = document.getElementById("tbody")
+
+    showData(addedProduct);
+
+    function showData(arr) {
+        let x = 0;
+        tbody.innerHTML = null;
+        arr.forEach((el, index) => {
+            let tr = document.createElement("tr");
+
+            let id = document.createElement("td");
+            id.innerText = ++x;
+
+            let brand = document.createElement("td")
+            brand.innerText = el.title;
+
+            let price = document.createElement("td");
+            price.innerText = el.price;
+
+            let Delete = document.createElement("td");
+            Delete.innerText = "DELETE";
+            Delete.setAttribute("id", "delete");
+
+            let stock = document.createElement("td");
+            stock.innerText = "In Stock";
+
+
+            Delete.addEventListener("click", function () {
+                arr.splice(index, 1)
+                localStorage.setItem("addData", JSON.stringify(arr));
+                showData(arr);
+            })
+            tr.append(id, brand, price, Delete, stock);
+
+            tbody.append(tr);
+
+        });
+    }
+</script>
+
+</html>
