@@ -10,6 +10,65 @@ a {
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 
+.header {
+    background: linear-gradient(135deg, #3ca7ee, #8e44ad);
+    padding: 20px;
+    color: #fff;
+}
+.header-item {
+    transform: skew(-20deg);
+    color: greenyellow;
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+.header-item:hover {
+    transform: skew(0deg) scale(1.5);
+    color: rgb(167, 225, 7);
+}
+
+
+.header-item:hover {
+    transform: skew(0deg) scale(1.1);
+}
+
+/* Styling for the search input */
+.search-input {
+    border: 2px solid #333;
+    border-radius: 25px;
+    padding: 10px 15px;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #8e44ad;
+}
+
+/* Styling for the navbar */
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #8e44ad;
+}
+
+/* Button animation */
+.btn-outline-dark {
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    transform: translateY(-2px);
+}
 .top-nav li a {
     color: #fff;
     transition: color 0.3s ease;
@@ -66,7 +125,7 @@ a {
     color: #000;
 }
 
-.header-item {
+/* .header-item {
     padding: .25rem .4rem;
     cursor: pointer;
     color: #656565;
@@ -74,17 +133,14 @@ a {
     font-weight: bold;
     line-height: 2.5;
     text-decoration: none;
-}
+} */
 
 .header-item img {
     max-width: 220px;
     max-height: 55px;
 }
 
-.header-item-holder .header-item:hover, .header-item-holder  .header-item:focus {
-    color: #000;
-    text-decoration: none;
-}
+
 
 .nav-item {
     margin-right: 5px;
