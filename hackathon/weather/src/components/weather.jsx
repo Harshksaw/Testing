@@ -46,7 +46,7 @@ const Weather = () => {
       </div>
 
       {weatherData && (
-        <div className="animate-bounce  mt-10  bg-gradient-to-r from-blue-200 to-sky-300 rounded-md p-2">
+        <div className="animate-bounce  mt-10  bg-gradient-to-r from-blue-200 to-sky-300 rounded-md p-">
     <div>
         <h3 className="text-xl font-semibold mb-2">
           Weather in {weatherData.location.name}, {weatherData.location.country}
