@@ -1,7 +1,7 @@
 import imageOne from "./images/one.jpeg";
 import imageTwo from "./images/two.jpeg";
 import imageThree from "./images/three.jpeg";
-import imageFour from "./images/four.jpeg";
+import imageFour from "./images/four.jpg";
 import imageFive from "./images/five.jpeg";
 import imageSix from "./images/six.jpeg";
 import imageSeven from "./images/seven.jpeg";
@@ -11,8 +11,8 @@ export const data = [
     
     {
         "Dish": "Paneer Tikka",
-        "Restaurant Name": "Spice Garden",
-        "Image Url": imageOne,
+        "RestaurantName": "Spice Garden",
+        "ImageUrl": imageOne,
         "Type": {
             "nonveg": false,
             "veg": true,
@@ -22,8 +22,8 @@ export const data = [
     },
     {
         "Dish": "Margherita Pizza",
-        "Restaurant Name": "Pizza Hut",
-        "Image Url": imageOne,
+        "RestaurantName": "Pizza Hut",
+        "ImageUrl": imageTwo,
         "Type": {
             "nonveg": false,
             "veg": true,
@@ -33,8 +33,8 @@ export const data = [
     },
     {
         "Dish": "Butter Chicken",
-        "Restaurant Name": "Punjabi Tadka",
-        "Image Url": imageOne,
+        "RestaurantName": "Punjabi Tadka",
+        "ImageUrl": imageThree,
         "Type": {
             "nonveg": true,
             "veg": false,
@@ -44,8 +44,8 @@ export const data = [
     },
     {
         "Dish": "Pasta Alfredo",
-        "Restaurant Name": "Café Milano",
-        "Image Url": imageOne,
+        "RestaurantName": "Café Milano",
+        "ImageUrl": imageFour,
         "Type": {
             "nonveg": false,
             "veg": true,
@@ -55,8 +55,8 @@ export const data = [
     },
     {
         "Dish": "Chicken Biryani",
-        "Restaurant Name": "Paradise Biryani",
-        "Image Url": imageOne,
+        "RestaurantName": "Paradise Biryani",
+        "ImageUrl": imageFive,
         "Type": {
             "nonveg": true,
             "veg": false,
@@ -66,8 +66,8 @@ export const data = [
     },
     {
         "Dish": "Caprese Salad",
-        "Restaurant Name": "Green Leaf",
-        "Image Url": imageOne,
+        "RestaurantName": "Green Leaf",
+        "ImageUrl": imageSix,
         "Type": {
             "nonveg": false,
             "veg": true,
@@ -77,8 +77,8 @@ export const data = [
     },
     {
         "Dish": "Fish Curry",
-        "Restaurant Name": "Coastal Delight",
-        "Image Url": imageOne,
+        "RestaurantName": "Coastal Delight",
+        "ImageUrl": imageSeven,
         "Type": {
             "nonveg": true,
             "veg": false,
@@ -88,8 +88,8 @@ export const data = [
     },
     {
         "Dish": "Mushroom Risotto",
-        "Restaurant Name": "Trattoria Bella",
-        "Image Url": imageOne,
+        "RestaurantName": "Trattoria Bella",
+        "ImageUrl": imageEight,
         "Type": {
             "nonveg": false,
             "veg": true,
