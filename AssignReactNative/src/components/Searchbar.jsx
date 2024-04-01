@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Feather } from 'react-native';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
 
@@ -12,7 +12,8 @@ const SearchBar = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.iconContainer}>
-        <Feather name="search" size={20} color="#ccc" />
+
+        <Icon name="search" size={25} color="gray" />
       </TouchableOpacity>
       <TextInput
         style={styles.textInput}
@@ -20,8 +21,9 @@ const SearchBar = () => {
         placeholderTextColor="#ccc"
         onChangeText={handleSearchChange}
       />
+
       <TouchableOpacity style={styles.iconContainer}>
-        <Feather name="filter" size={20} color="#ccc" />
+    <Icon name="filter" size={25} color="#221e1e" />
       </TouchableOpacity>
     </View>
   );
