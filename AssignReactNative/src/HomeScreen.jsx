@@ -2,6 +2,8 @@ import {StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 import React, { useState } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import SearchBar from './components/Searchbar';
+import { data } from '../assets/data';
+import CardCarousel from './components/CarouselCard';
 
 
 
@@ -18,8 +20,18 @@ const HomeScreen = () => {
       <Text style={{ fontSize: 20, fontWeight: 'medium', marginBottom: 0 }}>Good Morning</Text>
       <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Mr Joe!</Text>
 
+      
+      
+
+
 
     <SearchBar/>
+
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+
+        <CardCarousel data={data}/>
+        </View>
+
   </View>
   );
 }

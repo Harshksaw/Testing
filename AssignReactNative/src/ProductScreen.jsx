@@ -50,50 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 15,
     position: 'relative',
-  },
-  gridContainer: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: '10px'
-    // flexDirection: 'row',
-    // flexWrap: 'wrap',
-    // justifyContent: 'space-between',
-  },
-  card: {
-    width: '42%',
-    // backgroundColor: '#ba8d8d',
-    marginBottom: 30,
-    margin: 15,
-    padding: 5,
-    borderRadius: 20,
-  },
-  cardImage: {
-    width: '110%',
-    height: 200,
-    resizeMode: 'cover',
-    borderRadius: 20,
-  },
-  cardTitle: {
-    position: 'absolute',
-    bottom: 10,
-    left: 15,
-    color: '#f7efef',
-    fontSize: 14,
-    fontWeight: 'bold',
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 10,
-    marginBottom: 20,
-  },
-  cardDetail: {
-    position: 'absolute',
-    bottom: 2,
-    left: 15,
-    color: '#f1d6d6',
-    fontSize: 12,
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -1, height: 1},
-    textShadowRadius: 10,
-    marginBottom: 7,
-  },
+  }
+ 
 });

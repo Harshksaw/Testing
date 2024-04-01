@@ -1,10 +1,49 @@
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Image} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icona from 'react-native-vector-icons/Octicons';
 
 const card = ({data}) => {
   const renderItem = ({item}) => (
     <View style={styles.card}>
+      <View
+        style={{
+          
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          top: 35,
+          left: 10,
+          right: 0,
+          
+          borderRadius: 50,
+          padding: 5,
+          zIndex: 1,
+        }}>
+       
+        <View
+          style={{
+            borderRadius: 20, 
+            width: 30, 
+            height: 25, 
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Icon name="bookmark" size={20} color="black" />
+        </View>
+        <View
+          style={{
+            borderRadius: 20, 
+            width: 30, 
+            height: 25, 
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Icona name="heart-fill" size={20} color="black" />
+        </View>
+      </View>
       <Image source={item.ImageUrl} style={styles.cardImage} />
       <Text style={styles.cardTitle}>{item.Dish}</Text>
 
@@ -19,11 +58,11 @@ const card = ({data}) => {
         marginRight: 10,
       }}>
       <FlatList
-        data={data} 
+        data={data}
         renderItem={renderItem}
-        keyExtractor={item => item.Dish} // Assuming unique 'id' property for each item
-        numColumns={2} 
-        contentContainerStyle={styles.gridContainer} // Apply grid styles to FlatList container
+        keyExtractor={item => item.Dish} 
+        numColumns={2}
+        contentContainerStyle={styles.gridContainer} 
       />
     </View>
   );
@@ -39,14 +78,14 @@ const styles = StyleSheet.create({
   },
   gridContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)'
-    // flexDirection: 'row',
-    // flexWrap: 'wrap',
-    // justifyContent: 'space-between',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    
+    
+    
   },
   card: {
     width: '42%',
-    // backgroundColor: '#ba8d8d',
+    
     marginBottom: 30,
     margin: 15,
     padding: 5,
