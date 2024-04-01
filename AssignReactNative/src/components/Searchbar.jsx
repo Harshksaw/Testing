@@ -27,7 +27,7 @@ const SearchBar = () => {
         onChangeText={handleSearchChange}
       />
       <TouchableOpacity style={styles.iconContainer} 
-      onPress={() => navigation.navigate('Product')}>
+      onPress={() => navigation.navigate('Filter')}>
         <Icon name="filter" size={25} color="#040303" />
       </TouchableOpacity>
     </View>

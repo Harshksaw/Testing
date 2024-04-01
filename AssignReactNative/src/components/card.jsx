@@ -73,7 +73,7 @@ export default card;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
+    padding: 5,
     position: 'relative',
   },
   gridContainer: {
@@ -86,9 +86,9 @@ const styles = StyleSheet.create({
   card: {
     width: '42%',
     
-    marginBottom: 30,
-    margin: 15,
-    padding: 5,
+    marginBottom: 5,
+    margin: 12,
+    padding: 1,
     borderRadius: 20,
   },
   cardImage: {

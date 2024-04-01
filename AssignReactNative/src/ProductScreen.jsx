@@ -16,7 +16,7 @@ const ProductScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1,marginBottom: 30}}>
       <View
         style={{
           flexDirection: 'row',
@@ -24,7 +24,7 @@ const ProductScreen = () => {
           padding: 15,
           marginTop: 20,
         }}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Icon name="arrow-back" size={30} />
         </TouchableOpacity>
         <Text
