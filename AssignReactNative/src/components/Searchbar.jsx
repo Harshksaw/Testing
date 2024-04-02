@@ -1,18 +1,15 @@
-import { useState } from "react";
-import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
+import { useState } from 'react';
+import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
-import ProductScreen from "../ProductScreen";
-
-
+import ProductScreen from '../ProductScreen';
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
   const handleSearchChange = () => {
     console.log(searchText);
-
   };
 
   return (
@@ -26,8 +23,10 @@ const SearchBar = () => {
         placeholderTextColor="#ccc"
         onChangeText={handleSearchChange}
       />
-      <TouchableOpacity style={styles.iconContainer} 
-      onPress={() => navigation.navigate('Filter')}>
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate('Filter')}
+      >
         <Icon name="filter" size={25} color="#040303" />
       </TouchableOpacity>
     </View>

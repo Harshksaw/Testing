@@ -1,16 +1,18 @@
 import { useNavigation } from '@react-navigation/native';
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import { useDispatch } from 'react-redux';
-import { updateCruisine, updateDiet, updateProtien } from '../Redux/filterSlice';
-
+import {
+  updateCruisine,
+  updateDiet,
+  updateProtien,
+} from '../Redux/filterSlice';
 
 const Filter = () => {
   const [selectedDiet, setSelectedDiet] = useState(null); // Initially no selection
   const [selectedCuisine, setSelectedCuisine] = useState(null); // Initially no selection
   const [selectedProtein, setSelectedProtein] = useState(null); // Initially no selection
-
 
   const navigation = useNavigation();
 
@@ -30,24 +32,20 @@ const Filter = () => {
 
   const dispatch = useDispatch();
 
-
   const handleApplyFilters = () => {
-
     const diet = selectedDiet;
-      const cruisine = selectedCuisine
-      const protein = selectedProtein
+    const cruisine = selectedCuisine;
+    const protein = selectedProtein;
 
-
-    console.log(diet,"--------------------filters-----------------");
-    console.log(cruisine,"--------------------filters-----------------");
-    console.log(protein,"--------------------filters-----------------");
+    // console.log(diet, '--------------------filters-----------------');
+    // console.log(cruisine, '--------------------filters-----------------');
+    // console.log(protein, '--------------------filters-----------------');
 
     dispatch(updateDiet(diet));
     dispatch(updateCruisine(cruisine));
     dispatch(updateProtien(protein));
 
-    navigation.navigate('Product')
-
+    navigation.navigate('Product');
   };
 
   const handleCancel = () => {
@@ -55,7 +53,7 @@ const Filter = () => {
     setSelectedCuisine(null);
     setSelectedProtein(null);
   };
- 
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Filters</Text>
@@ -67,7 +65,8 @@ const Filter = () => {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
-        }}>
+        }}
+      >
         <View style={{}}>
           <View>
             <View>
@@ -78,7 +77,8 @@ const Filter = () => {
                     styles.filterButton,
                     selectedDiet === 'Vegetarian' && styles.selectedButton,
                   ]}
-                  onPress={() => handleDietSelect('Vegetarian')}>
+                  onPress={() => handleDietSelect('Vegetarian')}
+                >
                   <Text style={styles.buttonText}>Vegetarian</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -86,7 +86,8 @@ const Filter = () => {
                     styles.filterButton,
                     selectedDiet === 'Non Vegetarian' && styles.selectedButton,
                   ]}
-                  onPress={() => handleDietSelect('Non Vegetarian')}>
+                  onPress={() => handleDietSelect('Non Vegetarian')}
+                >
                   <Text style={styles.buttonText}>Non Vegetarian</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -94,7 +95,8 @@ const Filter = () => {
                     styles.filterButton,
                     selectedDiet === 'Vegan' && styles.selectedButton,
                   ]}
-                  onPress={() => handleDietSelect('Vegan')}>
+                  onPress={() => handleDietSelect('Vegan')}
+                >
                   <Text style={styles.buttonText}>Vegan</Text>
                 </TouchableOpacity>
               </View>
@@ -109,7 +111,8 @@ const Filter = () => {
                     styles.filterButton,
                     selectedCuisine === 'Indian' && styles.selectedButton,
                   ]}
-                  onPress={() => handleCuisineSelect('Indian')}>
+                  onPress={() => handleCuisineSelect('Indian')}
+                >
                   <Text style={styles.buttonText}>Indian</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -117,7 +120,8 @@ const Filter = () => {
                     styles.filterButton,
                     selectedCuisine === 'Italian' && styles.selectedButton,
                   ]}
-                  onPress={() => handleCuisineSelect('Italian')}>
+                  onPress={() => handleCuisineSelect('Italian')}
+                >
                   <Text style={styles.buttonText}>Italian</Text>
                 </TouchableOpacity>
               </View>
@@ -125,7 +129,7 @@ const Filter = () => {
           </View>
 
           {/* Proteins Section */}
-          <View style={{marginTop: 100}}>
+          <View style={{ marginTop: 100 }}>
             <Text style={styles.subheading}>Proteins</Text>
             <View style={styles.buttonRow}>
               <TouchableOpacity
@@ -133,7 +137,8 @@ const Filter = () => {
                   styles.filterButton,
                   selectedProtein === 'Animal' && styles.selectedButton,
                 ]}
-                onPress={() => handleProteinSelect('Animal')}>
+                onPress={() => handleProteinSelect('Animal')}
+              >
                 <Text style={styles.buttonText}>Animal</Text>
               </TouchableOpacity>
               <TouchableOpacity
@@ -141,7 +146,8 @@ const Filter = () => {
                   styles.filterButton,
                   selectedProtein === 'Plant' && styles.selectedButton,
                 ]}
-                onPress={() => handleProteinSelect('Plant')}>
+                onPress={() => handleProteinSelect('Plant')}
+              >
                 <Text style={styles.buttonText}>Plant</Text>
               </TouchableOpacity>
             </View>
@@ -156,17 +162,20 @@ const Filter = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',
-          }}>
+          }}
+        >
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.cancelButton}
-              onPress={handleCancel}>
+              onPress={handleCancel}
+            >
               <Text style={styles.cancelButtonText}>Cancel</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               style={styles.applyButton}
-              onPress={handleApplyFilters}>
+              onPress={handleApplyFilters}
+            >
               <Text style={styles.applyButtonText}>Apply Filters</Text>
             </TouchableOpacity>
           </View>
@@ -207,7 +216,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fdfdfd',
     padding: 3,
     // paddingHorizontal: 10,
-    borderRadius: 5,
+
     flex: 1,
     marginRight: 6,
     borderColor: 'black',
@@ -220,7 +229,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#050404',
     textAlign: 'center',
-
   },
   buttonsContainer: {
     flexDirection: 'row',
@@ -248,8 +256,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
-
-
 });
 
 export default Filter;

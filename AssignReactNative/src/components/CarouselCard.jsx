@@ -1,16 +1,15 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icona from 'react-native-vector-icons/Octicons';
 
-const CardCarousel = ({data}) => {
-  const renderItem = ({item}) => (
+const CardCarousel = ({ data }) => {
+  const renderItem = ({ item }) => (
     <View style={styles.card}>
       <Image source={item.ImageUrl} style={styles.cardImage} />
 
       <View style={styles.cardOverlay}>
-
         <View>
           <View style={styles.iconContainer}>
             <View style={styles.iconWrapper}>
@@ -24,14 +23,13 @@ const CardCarousel = ({data}) => {
 
         <View>
           <Text style={styles.cardTitle}>{item.Dish}</Text>
-        <Text style={styles.cardDetail}>{item.RestaurantName}</Text>
+          <Text style={styles.cardDetail}>{item.RestaurantName}</Text>
         </View>
       </View>
-
     </View>
   );
   return (
-    <View style={{marginBottom: 50, marginRight: 0}}>
+    <View style={{ marginBottom: 50, marginRight: 0 }}>
       <Carousel
         data={data}
         renderItem={renderItem}
@@ -76,7 +74,7 @@ const styles = StyleSheet.create({
     bottom: 0,
 
     backgroundColor: 'rgba(0, 0, 0, 0.3)', // Semi-transparent overlay
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
     padding: 10,
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -99,14 +97,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },
   cardDetail: {
     color: '#f1d6d6',
     fontSize: 14,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: -1, height: 1},
+    textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 10,
   },
 });

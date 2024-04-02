@@ -1,11 +1,10 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   diet: null,
   cruisine: null,
-  protien: null
+  protien: null,
 };
-
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -13,17 +12,16 @@ const filterSlice = createSlice({
   reducers: {
     updateDiet(state, action) {
       state.diet = action.payload;
-   
     },
-    updateCruisine(state, action){
-        state.cruisine = action.payload;
+    updateCruisine(state, action) {
+      state.cruisine = action.payload;
     },
-    updateProtien(state, action){
-        state.protien = action.payload;
-    }
-
+    updateProtien(state, action) {
+      state.protien = action.payload;
+    },
   },
 });
 
-export const {updateDiet, updateCruisine , updateProtien} = filterSlice.actions;
+export const { updateDiet, updateCruisine, updateProtien } =
+  filterSlice.actions;
 export default filterSlice.reducer;
