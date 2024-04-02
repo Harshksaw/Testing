@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icona from 'react-native-vector-icons/Octicons';
 
 const card = ({ data }) => {
+
   const renderItem = ({ item }) => (
     <View style={styles.card}>
       <View
@@ -51,7 +52,13 @@ const card = ({ data }) => {
       <Text style={styles.cardDetail}>{item.RestaurantName}</Text>
     </View>
   );
-
+          if (data.length === 0) {
+            return (
+              <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 50 }}>
+                <Text style={{ color: 'red', fontSize: 18 }}>No available data</Text>
+              </View>
+            );
+          }
   return (
     <View
       style={{

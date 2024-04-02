@@ -17,6 +17,9 @@ export const data = [
       Indian: true,
       italian: false,
       category: 'restaurant', // New category property
+      Diet: 'Vegetarian',
+      Cruisines: 'Indian',
+      Protiens: 'Plant',
     },
   },
   {
@@ -29,6 +32,9 @@ export const data = [
       Indian: false,
       italian: true,
       category: 'cooking', // New category property
+      Diet: 'Vegan',
+      Cruisines: 'Italian',
+      Protiens: 'Animal',
     },
   },
   {
@@ -41,6 +47,9 @@ export const data = [
       Indian: true,
       italian: false,
       category: 'restaurant', // New category property
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'Indian',
+      Protiens: 'Animal',
     },
   },
   {
@@ -53,6 +62,9 @@ export const data = [
       Indian: false,
       italian: true,
       category: 'cooking', // New category property
+      Diet: 'Vegan',
+      Cruisines: 'Italian',
+      Protiens: 'Plant',
     },
   },
   {
@@ -65,6 +77,9 @@ export const data = [
       Indian: true,
       italian: false,
       category: 'restaurant', // New category property
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'Indian',
+      Protiens: 'Animal',
     },
   },
   {
@@ -77,6 +92,9 @@ export const data = [
       Indian: false,
       italian: true,
       category: 'cooking', // New category property
+      Diet: 'Vegan',
+      Cruisines: 'Italian',
+      Protiens: 'Plant',
     },
   },
   {
@@ -89,6 +107,9 @@ export const data = [
       Indian: true,
       italian: false,
       category: 'restaurant', // New category property
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'Indian',
+      Protiens: 'Animal',
     },
   },
   {
@@ -101,6 +122,129 @@ export const data = [
       Indian: false,
       italian: true,
       category: 'cooking', // New category property
+      Diet: 'Vegan',
+      Cruisines: 'Italian',
+      Protiens: 'Plant',
+    },
+  },
+  {
+    Dish: 'Veggie Burger',
+    RestaurantName: 'Burger King',
+    ImageUrl: imageOne,
+    Type: {
+      nonveg: false,
+      veg: true,
+      Indian: false,
+      italian: false,
+      category: 'fast food',
+      Diet: 'Vegetarian',
+      Cruisines: 'American',
+      Protiens: 'Plant',
+    },
+  },
+  {
+    Dish: 'Sushi Roll',
+    RestaurantName: 'Sushi Bar',
+    ImageUrl: imageTwo,
+    Type: {
+      nonveg: true,
+      veg: false,
+      Indian: false,
+      italian: false,
+      category: 'restaurant',
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'Japanese',
+      Protiens: 'Animal',
+    },
+  },
+  {
+    Dish: 'Pad Thai',
+    RestaurantName: 'Thai Spice',
+    ImageUrl: imageThree,
+    Type: {
+      nonveg: false,
+      veg: true,
+      Indian: false,
+      italian: false,
+      category: 'restaurant',
+      Diet: 'Vegetarian',
+      Cruisines: 'Thai',
+      Protiens: 'Plant',
+    },
+  },
+  {
+    Dish: 'Steak',
+    RestaurantName: 'Prime Steakhouse',
+    ImageUrl: imageFour,
+    Type: {
+      nonveg: true,
+      veg: false,
+      Indian: false,
+      italian: false,
+      category: 'restaurant',
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'American',
+      Protiens: 'Animal',
+    },
+  },
+  {
+    Dish: 'Falafel Wrap',
+    RestaurantName: 'Mediterranean Delight',
+    ImageUrl: imageFive,
+    Type: {
+      nonveg: false,
+      veg: true,
+      Indian: false,
+      italian: false,
+      category: 'restaurant',
+      Diet: 'Vegetarian',
+      Cruisines: 'Mediterranean',
+      Protiens: 'Plant',
+    },
+  },
+  {
+    Dish: 'Sushi Bowl',
+    RestaurantName: 'Sushi Bar',
+    ImageUrl: imageSix,
+    Type: {
+      nonveg: true,
+      veg: false,
+      Indian: false,
+      italian: false,
+      category: 'restaurant',
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'Japanese',
+      Protiens: 'Animal',
+    },
+  },
+  {
+    Dish: 'Chicken Shawarma',
+    RestaurantName: 'Middle Eastern Grill',
+    ImageUrl: imageSeven,
+    Type: {
+      nonveg: true,
+      veg: false,
+      Indian: false,
+      italian: false,
+      category: 'restaurant',
+      Diet: 'Non-Vegetarian',
+      Cruisines: 'Middle Eastern',
+      Protiens: 'Animal',
+    },
+  },
+  {
+    Dish: 'Margherita Pizza',
+    RestaurantName: 'Pizza Hut',
+    ImageUrl: imageEight,
+    Type: {
+      nonveg: false,
+      veg: true,
+      Indian: false,
+      italian: true,
+      category: 'cooking',
+      Diet: 'Vegetarian',
+      Cruisines: 'Italian',
+      Protiens: 'Plant',
     },
   },
 ];

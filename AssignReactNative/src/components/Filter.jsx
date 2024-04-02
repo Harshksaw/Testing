@@ -52,6 +52,8 @@ const Filter = () => {
     setSelectedDiet(null);
     setSelectedCuisine(null);
     setSelectedProtein(null);
+
+    navigation.navigate('Home');
   };
 
   return (
@@ -84,9 +86,9 @@ const Filter = () => {
                 <TouchableOpacity
                   style={[
                     styles.filterButton,
-                    selectedDiet === 'Non Vegetarian' && styles.selectedButton,
+                    selectedDiet === 'Non-Vegetarian' && styles.selectedButton,
                   ]}
-                  onPress={() => handleDietSelect('Non Vegetarian')}
+                  onPress={() => handleDietSelect('Non-Vegetarian')}
                 >
                   <Text style={styles.buttonText}>Non Vegetarian</Text>
                 </TouchableOpacity>
@@ -158,7 +160,8 @@ const Filter = () => {
 
         <View
           style={{
-            marginTop: 200,
+            marginTop: 150,
+            marginBottom: 100,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-end',

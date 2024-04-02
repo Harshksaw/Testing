@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
-import ProductScreen from '../ProductScreen';
+import ProductScreen from '../screens/ProductScreen';
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');

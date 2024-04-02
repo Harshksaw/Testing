@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './src/HomeScreen';
+import HomeScreen from './src/screens/HomeScreen';
 // import ProductScreen from './src/ProductScreen';
 import Filter from './src/components/Filter';
-import ProductScreen from './src/ProductScreen';
+import ProductScreen from './src/screens/ProductScreen';
 import { store } from './src/Redux/store';
 import { Provider } from 'react-redux';
 
