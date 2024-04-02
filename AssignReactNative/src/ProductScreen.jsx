@@ -11,9 +11,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {data} from '../assets/data';
 import {useNavigation} from '@react-navigation/native';
 import Card from './components/card';
+import { useSelector } from 'react-redux';
 
 const ProductScreen = () => {
   const navigation = useNavigation();
+
+    const filter = useSelector(state => state.filter.selection);
 
   return (
     <View style={{ flex: 1,marginBottom: 30}}>

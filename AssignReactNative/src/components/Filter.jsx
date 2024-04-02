@@ -2,6 +2,9 @@ import { useNavigation } from '@react-navigation/native';
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
+import { useDispatch } from 'react-redux';
+import { updateFilter } from '../Redux/filterSlice';
+
 const Filter = () => {
   const [selectedDiet, setSelectedDiet] = useState(null); // Initially no selection
   const [selectedCuisine, setSelectedCuisine] = useState(null); // Initially no selection
@@ -24,13 +27,19 @@ const Filter = () => {
     setSelectedProtein(protein);
   };
 
+  const dispatch = useDispatch();
+
+
   const handleApplyFilters = () => {
     const filters = {
       diet: selectedDiet,
       cuisine: selectedCuisine,
       protein: selectedProtein,
     };
-    console.log(filters);
+    console.log(filters,"filters-----------------");
+
+    dispatch(updateFilter(filters));
+
     navigation.navigate('Product')
 
   };
