@@ -16,7 +16,13 @@ import { useSelector } from 'react-redux';
 const ProductScreen = () => {
   const navigation = useNavigation();
 
-    const filter = useSelector(state => state.filter.selection);
+    const diet = useSelector(state => state.filter.diet);
+    const cruisine = useSelector(state => state.filter.cruisine);
+    const protien = useSelector(state => state.filter.protien);
+
+    console.log(diet, "filter product diet");
+    console.log(cruisine, "filter product diet");
+    console.log(protien, "filter product diet");
 
   return (
     <View style={{ flex: 1,marginBottom: 30}}>

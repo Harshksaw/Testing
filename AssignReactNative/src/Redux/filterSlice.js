@@ -1,28 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-  selection: {
-    Diet: null,
-    Cuisine: null,
-    Protein: null, 
-  },
+  diet: null,
+  cruisine: null,
+  protien: null
 };
+
 
 const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    updateFilter(state, action) {
-      const { property, newValue } = action.payload;
-
-
-      state.selection = {
-        ...state.selection,
-        [property]: newValue, 
-      };
+    updateDiet(state, action) {
+      state.diet = action.payload;
+   
     },
+    updateCruisine(state, action){
+        state.cruisine = action.payload;
+    },
+    updateProtien(state, action){
+        state.protien = action.payload;
+    }
+
   },
 });
 
-export const { updateFilter } = filterSlice.actions;
+export const {updateDiet, updateCruisine , updateProtien} = filterSlice.actions;
 export default filterSlice.reducer;

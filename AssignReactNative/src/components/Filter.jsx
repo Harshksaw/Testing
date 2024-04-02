@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 import { useDispatch } from 'react-redux';
-import { updateFilter } from '../Redux/filterSlice';
+import { updateCruisine, updateDiet, updateProtien } from '../Redux/filterSlice';
+
 
 const Filter = () => {
   const [selectedDiet, setSelectedDiet] = useState(null); // Initially no selection
@@ -31,14 +32,19 @@ const Filter = () => {
 
 
   const handleApplyFilters = () => {
-    const filters = {
-      diet: selectedDiet,
-      cuisine: selectedCuisine,
-      protein: selectedProtein,
-    };
-    console.log(filters,"filters-----------------");
 
-    dispatch(updateFilter(filters));
+    const diet = selectedDiet;
+      const cruisine = selectedCuisine
+      const protein = selectedProtein
+
+
+    console.log(diet,"--------------------filters-----------------");
+    console.log(cruisine,"--------------------filters-----------------");
+    console.log(protein,"--------------------filters-----------------");
+
+    dispatch(updateDiet(diet));
+    dispatch(updateCruisine(cruisine));
+    dispatch(updateProtien(protein));
 
     navigation.navigate('Product')
 
