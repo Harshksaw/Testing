@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Feather } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
+import ProductScreen from '../screens/ProductScreen';
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
+  const navigation = useNavigation();
 
-  const handleSearchChange = (text) => {
-    setSearchText(text);
-    // Implement your search logic here based on searchText
+  const handleSearchChange = () => {
+    console.log(searchText);
   };
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.iconContainer}>
-        <Feather name="search" size={20} color="#ccc" />
+        <Icon name="search" size={25} color="#837474" />
       </TouchableOpacity>
       <TextInput
         style={styles.textInput}
@@ -20,8 +23,11 @@ const SearchBar = () => {
         placeholderTextColor="#ccc"
         onChangeText={handleSearchChange}
       />
-      <TouchableOpacity style={styles.iconContainer}>
-        <Feather name="filter" size={20} color="#ccc" />
+      <TouchableOpacity
+        style={styles.iconContainer}
+        onPress={() => navigation.navigate('Filter')}
+      >
+        <Icon name="filter" size={25} color="#040303" />
       </TouchableOpacity>
     </View>
   );
