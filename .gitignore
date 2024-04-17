@@ -1,0 +1,67 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore npm debug log
+npm-debug.log
+
+# Ignore yarn error log
+yarn-error.log
+
+# Ignore common libraries and dependencies
+# Add any additional libraries or dependencies you want to ignore
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Java
+*.class
+
+# Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Node.js
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/Release
+node_modules/
+jspm_packages/
+typings/
+.npm
+.eslintcache
+*.tgz
+.yarn-integrity
+
+# React Native
+android/
+ios/
+*.apk
+*.aab
+*.keystore
+
+# Visual Studio Code
+.vscode/
