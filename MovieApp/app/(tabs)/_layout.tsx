@@ -6,10 +6,8 @@ import { Pressable } from 'react-native';
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-import  FontAwesome  from '@expo/vector-icons/FontAwesome';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
@@ -27,7 +25,8 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -50,9 +49,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="WatchList"
+        name="two"
         options={{
-          title: 'Tab Two',
+          title: 'Watchlist',
           tabBarIcon: ({ color }) => <TabBarIcon name="eye" color={color} />,
         }}
       />
