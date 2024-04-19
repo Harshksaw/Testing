@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFilter } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import { dataDummy } from "../../../public/data";
+import { DummyData } from "../../../public/data";
 import Pagination from "./Pagination";
 
 const ReportPage = () => {
@@ -22,7 +22,7 @@ const ReportPage = () => {
         </div>
       </div>
 
-      <Pagination data={dataDummy} />
+      <Pagination data={DummyData} />
     </div>
   );
 };

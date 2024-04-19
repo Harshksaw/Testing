@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { FaFileDownload } from "react-icons/fa";
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 interface Props {
@@ -56,20 +57,20 @@ const Pagination = ({ data }: Props) => {
           <tr className="bg-slate-300  ">
             <th style={{ width: "20%" , padding: "7px", fontWeight:"500" }}>Date</th>
             <th style={{ flex: 2, wordBreak: "break-word",  fontWeight:"500" }}>Title</th>
-            <th style={{ width: "30%", fontWeight:"500" }}>Download</th>
+            <th style={{ width: "20%", fontWeight:"500" }}>Download</th>
           </tr>
         </thead>
 
         <tbody className="no-appearance no-outline no-border">
           {displayedItems.map((item, index) => (
-            <tr key={index} className="">
+            <tr key={index} className="text-center">
               <td style={{ width: "20%" }} className="px-5 py-5">
                 {item.date}
               </td>
-              <td style={{ flex: 2 }}>{item.title}</td>
-              <td style={{ width: "30%" }} className="text-center">
+              <td style={{ flex: 3 }}>{item.title}</td>
+              <td style={{ width: "20%" }} className="text-center ">
                 <a href={item.downloadLink} download>
-                  Download
+                <FaFileDownload  className="ml-16"/>
                 </a>
               </td>
             </tr>
