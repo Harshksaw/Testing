@@ -1,34 +1,32 @@
-import { Button, Pressable, StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-import { useEffect } from 'react';
-import { fetchTopRateMovies } from '../api/movie';
+import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native';
+import { View } from '@/components/Themed';
+import { fetchTopRatedMovies } from '@/api/movies';
+import { useQuery } from '@tanstack/react-query';
+import MovieListItem from '@/components/MovieListItem';
 
 export default function TabOneScreen() {
-  useEffect(()=>{
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['movies'],
+    queryFn: fetchTopRatedMovies,
+  });
 
-    const fetchMovies = async()=>{
-      console.log('fetching movies');
-      const startTime = Date.now();
-      // Your existing code here
-      const endTime = Date.now();
-      const duration = endTime - startTime;
-      console.log('Duration:', duration, 'ms');
-      const movies = await fetchTopRateMovies()
-      console.log('fetching movies', movies);
-    }
-   
-    fetchMovies();
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
 
-  },[])
-  
+  if (error) {
+    return <Text>{error.message}</Text>;
+  }
+
   return (
     <View style={styles.container}>
-        <Pressable onPress={ ()=> console.log('sdd') }>
-          <Text>Fetch Movies</Text>
-        </Pressable>
-
+      <FlatList
+        data={data}
+        numColumns={2}
+        contentContainerStyle={{ gap: 5, padding: 5 }}
+        columnWrapperStyle={{ gap: 5 }}
+        renderItem={({ item }) => <MovieListItem movie={item} />}
+      />
     </View>
   );
 }
@@ -36,8 +34,5 @@ export default function TabOneScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-
 });
