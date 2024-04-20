@@ -15,8 +15,12 @@ export const fetchTopRateMovies = async () => {
     const json = await res.json();
     console.log('json', json)
 
-    return json.results;
+  
 
+    if(!res.ok){
+      throw new Error('Error fetching movies')
+    }
+    return json.results;
   } catch (error) {
     console.log('error --------------------------____>>>>>>>----------_>>', error)
   }
