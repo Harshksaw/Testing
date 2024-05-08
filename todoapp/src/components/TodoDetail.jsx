@@ -9,10 +9,11 @@ import React, { useState } from 'react';
     const [editing, setEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(todo.title);
 
-  
+    
 
     const handleEdit = () => {
       setEditing(true);
+      setEditedTitle(todo.title);
     };
 
     const handleSave = () => {

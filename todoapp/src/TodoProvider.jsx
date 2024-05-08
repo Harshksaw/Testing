@@ -25,7 +25,7 @@ const TodoProvider = ({ children }) => {
     
 
     const title = todo.title;
-    console.log(title)
+
 
     if (title) {  
       const updatedTodo = { ...todos, title };
@@ -37,7 +37,7 @@ const TodoProvider = ({ children }) => {
 
       if (response.ok) {
         setTodos(prevTodos => prevTodos.map(t => (t.id === todo.id ? updatedTodo : t)));
-        // setSelectedTodo(updatedTodo); // Update selectedTodo state
+
       } else {
         console.error('Error updating todo:', response.statusText);
       }
