@@ -1,0 +1,83 @@
+no toast.show in swiper
+
+dispatch(
+          showToastMessage(
+            true,
+            `Unexpected token status ${response.status}`,
+            true,
+          ),
+        );
+
+ dispatch(
+          showToastMessage(
+            true,
+            `error ${error.response.status + error.response.data.message}`,
+            true,
+          ),
+        );
+
+dispatch(showToastMessage(true, `no response received`, true));
+
+
+dispatch(showToastMessage(true, `Error:- ${error.message}`, true));
+
+dispatch(showToastMessage(true, `success`, false));
+
+
+      app.tsx
+      animatedslack.tsx
+      
+
+
+
+
+      const showToast = (message, setShowToast) => {
+  setShowToast({
+    visible: true,
+    message: message,
+  });
+  console.error(message); // Log the error to the console
+};
+
+const YourComponent = () => {
+  const [toast, setToast] = useState(null);
+
+  const showToastHandler = (message) => {
+    showToast(message, setToast);
+  };
+
+  const hideToastHandler = () => {
+    setToast(null);
+  };
+
+  const someFunction = () => {
+    try {
+      // Your code that might throw an error
+    } catch (error) {
+      showToastHandler(`Error in someFunction: ${error}`);
+    }
+  };
+
+  const anotherFunction = () => {
+    try {
+      // Another block of code that might throw an error
+    } catch (error) {
+      showToastHandler(`Error in anotherFunction: ${error}`);
+    }
+  };
+
+  return (
+    <View>
+      {/* Your component JSX */}
+      {toast && (
+        <Toast
+          message={toast.message}
+          visible={toast.visible}
+          onClose={hideToastHandler}
+        />
+      )}
+    </View>
+  );
+};
+
+export default YourComponent;
