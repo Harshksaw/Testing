@@ -8,14 +8,15 @@ import connectDB from '../../lib/dbConnect'; // Import the connectDB function
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Contact[] | string>) {
   await connectDB(); // Connect to MongoDB before processing requests
 
+
+
   switch (req.method) {
     case 'GET':
       try {
-        const contacts = await ContactSchema.find(); // Fetch all contacts
-        res.status(200).json(contacts);
+        res.status(200).json({ message: 'Health check passed' });
       } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Error fetching contacts' });
+        res.status(500).json({ message: 'Error performing health check' });
       }
       break;
     case 'POST':

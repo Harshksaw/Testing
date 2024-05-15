@@ -1,8 +1,0 @@
-{
-  "react-native": {
-    "messaging_android_headless_task_timeout": 50000,
-    "messaging_android_notification_channel_id": 
-    "high_importance_channel",
-    "messaging_android_notification_color": "@color/lightsalmon"
-  }
-}
