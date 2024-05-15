@@ -60,12 +60,12 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <h2 className="text-2xl font-semibold mb-6">Add New Contact</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className=" mx-auto max-w-[50%] px-6 py-4 bg-gray-800 text-white  rounded-sm ">
+      <h2 className="text-2xl font-semibold mb-2">Add New Contact</h2>
+      <form onSubmit={handleSubmit} className="space-y-2 text-white text-2xl">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
           {/* Name */}
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="name" className="block  font-medium text-xl text-white ">
             Name:
           </label>
           <input
@@ -78,7 +78,7 @@ const ContactForm: React.FC = () => {
           />
 
           {/* Phone Number */}
-          <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="phoneNumber" className="block  font-medium text-xl text-white">
             Phone Number:
           </label>
           <input
@@ -90,7 +90,7 @@ const ContactForm: React.FC = () => {
           />
 
           {/* Email */}
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block  font-medium text-xl text-white">
             Email:
           </label>
           <input
@@ -103,7 +103,7 @@ const ContactForm: React.FC = () => {
           />
 
           {/* Hobbies */}
-          <label htmlFor="hobbies" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="hobbies" className="block  font-medium text-xl text-white">
             Hobbies:
           </label>
           <textarea
@@ -117,7 +117,7 @@ const ContactForm: React.FC = () => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="px-4 py-2  font-medium text-xl text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             // onClick={handleSubmit}
 
           >

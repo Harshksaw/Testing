@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import ContactTable from '../components/Contact';
 import ContactForm from '../components/AddContactForm'; // Import ContactForm
+import axios from 'axios';
 
 interface Contact {
   id: string;
@@ -15,27 +16,25 @@ interface Contact {
 const ContactsPage: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [selectedContacts, setSelectedContacts] = useState<string[]>([]);
+  const [onDelete, setOnDelete] = useState(false);  
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const response = await fetch('/api/contacts');
-      const data = await response.json();
-      setContacts(data);
+      const data = await axios('http://localhost:3000/api/contacts');
+      console.log('Contacts:', data.data); 
+
+      setContacts(data.data);
     };
 
     fetchContacts();
-  }, []);
+  }, [onDelete]);
 
   const handleEdit = (id: string) => {
     // Handle edit navigation (e.g., redirect to edit page)
-    console.log('Edit contact:', id);
+    console.log('Edit contact--->:', id);
   };
 
-  const handleDelete = (id: string) => {
-    setSelectedContacts((prev) => prev.filter((selectedId) => selectedId !== id));
-    // Implement API call to delete the contact
-  };
-
+ 
   const handleSelectChange = (id: string, checked: boolean) => {
     setSelectedContacts((prev) => {
       if (checked) {
@@ -52,8 +51,9 @@ const ContactsPage: React.FC = () => {
       <ContactForm /> {/* Add ContactForm component */}
       <ContactTable
         contacts={contacts}
+
         onEdit={handleEdit}
-        onDelete={handleDelete}
+        onDelete={setOnDelete}
         selectedContacts={selectedContacts}
         onSelectChange={handleSelectChange}
       />
