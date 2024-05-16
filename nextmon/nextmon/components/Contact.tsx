@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
 import axios from 'axios';
@@ -198,16 +200,16 @@ const ContactTable: React.FC<ContactTableProps> = ({
     <table className="table w-full ">
       <thead>
         <tr>
-          {columns.map((column) => (
-            <th key={column.dataIndex} className="text-left px-6 py-3 bg-gray-100">
+          {columns.map((column, index) => (
+            <th key={index} className="text-left px-6 py-3 bg-gray-100">
               {column.title}
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {contacts.map((contact) => (
-          <tr key={contact.id} className="border-b border-gray-200 py-4">
+        {contacts.map((contact, index) => (
+          <tr key={index} className="border-b border-gray-200 py-4">
             {columns.map((column) => (
               <td key={column.dataIndex} className={column.className || ''}>
                 {column.render ? column.render(contact[column.dataIndex]) : contact[column.dataIndex]}

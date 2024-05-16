@@ -1,69 +1,72 @@
-'use client'
-
+'use client';
 import React, { useState, useEffect } from 'react';
-import ContactTable from '../components/Contact';
-import ContactForm from '../components/AddContactForm'; // Import ContactForm
 import axios from 'axios';
+import ContactForm  from '../components/AddContactForm';
+import ContactTable  from '../components/Contact';
 
-interface Contact {
-  id: string;
-  name: string;
-  phoneNumber: string;
-  email: string;
-  hobbies: string;
-}
-
-const ContactsPage: React.FC = () => {
-  const [contacts, setContacts] = useState<Contact[]>([]);
-  const [selectedContacts, setSelectedContacts] = useState<string[]>([]);
-  const [onDelete, setOnDelete] = useState(false); 
-  const [addContact, setAddContact] = useState(false);
+const Contact = () => {
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
-      const data = await axios('http://localhost:3000/api/contacts');
-      console.log('Contacts:', data.data); 
-
-      setContacts(data.data);
-      console.log("CALLLED")
+      try {
+        const response = await axios.get('/api/contacts');
+        setContacts(response.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
-    setOnDelete(false);
 
     fetchContacts();
-  }, [onDelete, addContact]);
+  }, []);
 
-  const handleEdit = (id: string) => {
-    // Handle edit navigation (e.g., redirect to edit page)
-    console.log('Edit contact--->:', id);
+  const addContact = async (newContact) => {
+    try {
+      console.log(newContact);
+      const response = await axios.post('http://localhost:3000/api/contacts', newContact);
+      setContacts([...contacts, response.data]); 
+    } catch (error) {
+      console.error(error);
+    }
   };
 
- 
-  const handleSelectChange = (id: string, checked: boolean) => {
-    setSelectedContacts((prev) => {
-      if (checked) {
-        return [...prev, id];
-      } else {
-        return prev.filter((selectedId) => selectedId !== id);
-      }
-    });
+  const updateContact = async (updatedContact) => {
+    try {
+      const updatedContacts = await Promise.all(
+        contacts.map(async (contact) => {
+          if (contact._id === updatedContact._id) {
+            const response = await axios.put(`/api/contacts/${contact._id}`, updatedContact);
+            return response.data;
+          }
+          return contact;
+        })
+      );
+      setContacts(updatedContacts);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteContact = async (id) => {
+    try {
+      await axios.delete(`/api/contacts/${id}`);
+      setContacts(contacts.filter((contact) => contact._id !== id));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Contacts</h1>
-      <ContactForm 
-        setAddContact={setAddContact}
-      /> {/* Add ContactForm component */}
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold mb-4">Contact Manager</h1>
+      <ContactForm onSubmit={addContact} />
       <ContactTable
         contacts={contacts}
-
-        onEdit={handleEdit}
-        onDelete={setOnDelete}
-        selectedContacts={selectedContacts}
-        onSelectChange={handleSelectChange}
+        onDelete={deleteContact}
+        onUpdate={updateContact} // Assuming ContactTable handles updates
       />
     </div>
   );
 };
 
-export default ContactsPage;
+export default Contact;

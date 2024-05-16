@@ -1,133 +1,90 @@
 'use client'
-
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'
-import axios from 'axios';
 
-interface Contact {
-  name: string;
-  phoneNumber: string;
-  email: string;
-  hobbies: string;
-}
-
-const ContactForm: React.FC = ({setAddContact}:any) => {
-  const router = useRouter();
+const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [hobbies, setHobbies] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submit form:', { name, phoneNumber, email, hobbies });
+    onSubmit({ name, phoneNumber, email, hobbies });
+    setName('');
+    setPhoneNumber('');
+    setEmail('');
+    setHobbies('');
 
-    const newContact: Contact = {
-      name,
-      phoneNumber,
-      email,
-      hobbies,
-    };
-
-    try {
-      const response = await axios.post('http://localhost:3000/api/contacts', {
-        name,
-        phoneNumber,
-        email,
-        hobbies,
-      });
-
-      if (response.status === 200) {
-        setName('');
-        setPhoneNumber('');
-        setEmail('');
-        setHobbies('');
-        setAddContact();
-      } else {
-        console.error('Error creating contact');
-      }
-      
-    } catch (error) {
-      console.error('Error creating contact:', error);
-      
-      
-    }
-
-    // Implement API call to create a new contact
-   
-
-   
+    
   };
 
   return (
-    <div className=" mx-auto max-w-[50%] px-6 py-4 bg-gray-800 text-white  rounded-sm ">
-      <h2 className="text-2xl font-semibold mb-2">Add New Contact</h2>
-      <form onSubmit={handleSubmit} className="space-y-2 text-white text-2xl">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-          {/* Name */}
-          <label htmlFor="name" className="block  font-medium text-xl text-white ">
-            Name:
-          </label>
-          <input
-            type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
-          />
+    <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+      <div className="flex flex-col">
+        <label htmlFor="name" className="text-gray-700 font-medium">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+          required
+        />
+      </div>
+      <div className="flex flex-col">
+        <label htmlFor="phoneNumber" className="text-gray-700 font-medium">
+          Phone Number
+        </label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+          required
+        />
+      </div>
+      <div className="flex flex-col">
+        <label htmlFor="email" className="text-gray-700 font-medium">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+          required
+        />
+      </div>
+      <div className="flex flex-col">
+        <label htmlFor="hobbies" className="text-gray-700 font-medium">
+          Hobbies
+        </label>
+        <textarea
+          id="hobbies"
+          name="hobbies"
+          value={hobbies}
+          onChange={(e) => setHobbies(e.target.value)}
+          className="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-500 focus:ring-1"
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add Contact
+        </button>        
+      </div>
+      
+      </form>
 
-          {/* Phone Number */}
-          <label htmlFor="phoneNumber" className="block  font-medium text-xl text-white">
-            Phone Number:
-          </label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
-          />
-
-          {/* Email */}
-          <label htmlFor="email" className="block  font-medium text-xl text-white">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
-          />
-
-          {/* Hobbies */}
-          <label htmlFor="hobbies" className="block  font-medium text-xl text-white">
-            Hobbies:
-          </label>
-          <textarea
-            id="hobbies"
-            rows={4}
-            value={hobbies}
-            onChange={(e) => setHobbies(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
-          ></textarea>
-        </div>
-        <div className="flex justify-end">
-          <button
-            type="submit"
-            className="px-4 py-2  font-medium text-xl text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            // onClick={handleSubmit}
-
-          >
-            Add Contact
-          </button>
-        </div>
-            </form>
-
-    </div>
-  );
-};
-
+  )
+}
 export default ContactForm;
