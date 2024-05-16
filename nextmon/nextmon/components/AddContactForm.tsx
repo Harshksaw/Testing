@@ -11,7 +11,7 @@ interface Contact {
   hobbies: string;
 }
 
-const ContactForm: React.FC = () => {
+const ContactForm: React.FC = ({setAddContact}:any) => {
   const router = useRouter();
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -42,7 +42,7 @@ const ContactForm: React.FC = () => {
         setPhoneNumber('');
         setEmail('');
         setHobbies('');
-        router.push('/contacts'); // Redirect to contacts list after successful creation
+        setAddContact();
       } else {
         console.error('Error creating contact');
       }

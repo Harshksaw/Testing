@@ -16,7 +16,8 @@ interface Contact {
 const ContactsPage: React.FC = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [selectedContacts, setSelectedContacts] = useState<string[]>([]);
-  const [onDelete, setOnDelete] = useState(false);  
+  const [onDelete, setOnDelete] = useState(false); 
+  const [addContact, setAddContact] = useState(false);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -24,10 +25,12 @@ const ContactsPage: React.FC = () => {
       console.log('Contacts:', data.data); 
 
       setContacts(data.data);
+      console.log("CALLLED")
     };
+    setOnDelete(false);
 
     fetchContacts();
-  }, [onDelete]);
+  }, [onDelete, addContact]);
 
   const handleEdit = (id: string) => {
     // Handle edit navigation (e.g., redirect to edit page)
@@ -48,7 +51,9 @@ const ContactsPage: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Contacts</h1>
-      <ContactForm /> {/* Add ContactForm component */}
+      <ContactForm 
+        setAddContact={setAddContact}
+      /> {/* Add ContactForm component */}
       <ContactTable
         contacts={contacts}
 
