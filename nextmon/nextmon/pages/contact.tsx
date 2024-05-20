@@ -6,7 +6,7 @@ import ContactTable  from '../components/ContactTable';
 
 const Contact = () => {
   const URL ='http://localhost:3000'
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState<any>([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -21,20 +21,21 @@ const Contact = () => {
     fetchContacts();
   }, []);
 
-  const addContact = async (newContact) => {
+  const addContact = async ({newContact }: { newContact: any }) => {
     try {
-      console.log(newContact);
+
       const response = await axios.post('http://localhost:3000/api/contacts', newContact);
+      
       setContacts([...contacts, response.data]); 
     } catch (error) {
       console.error(error);
     }
   };
 
-  const updateContact = async (updatedContact) => {
+  const updateContact = async ({updatedContact}:any) => {
     try {
       const updatedContacts = await Promise.all(
-        contacts.map(async (contact) => {
+        contacts.map(async (contact :any) => {
           if (contact._id === updatedContact._id) {
             const response = await axios.put(`/api/contacts/${contact._id}`, updatedContact);
             return response.data;
@@ -49,7 +50,7 @@ const Contact = () => {
   };
 
 
-  const deleteContact = async (id) => {
+  const deleteContact = async ({id} :any) => {
     try {
       console.log(id)
      const res =  await axios.delete(`${URL}/api/contacts/${id}`);
@@ -57,7 +58,7 @@ const Contact = () => {
 
       
 
-      setContacts(contacts.filter((contact) => contact._id != id));
+      setContacts(contacts.filter((contact : any) => contact._id != id));
     } catch (error) {
       console.error(error);
     }

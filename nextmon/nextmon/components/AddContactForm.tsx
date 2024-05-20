@@ -1,13 +1,13 @@
 'use client'
 import React, { useState } from 'react';
 
-const ContactForm = ({ onSubmit }) => {
+const ContactForm = ({ onSubmit }:any) => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [hobbies, setHobbies] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit({ name, phoneNumber, email, hobbies });
     setName('');

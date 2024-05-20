@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import EditForm from './EditForm';
+
 import ContactDataCell from './ContactDataCell';
-import ActionButtons from './ActionButton';
+
 import SelectCheckbox from './SelectBox';
 
 interface TableProps {
@@ -68,7 +68,7 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
           <tr key={index} className="border-b border-gray-200 py-4 text-center">
             <td>
               <SelectCheckbox
-                id={contact._id}
+
               // selectedContacts={selectedContacts}
               // onSelectChange={onSelectChange}
               />

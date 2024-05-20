@@ -10,7 +10,7 @@ const EditModal = ({ defaultData, handleEdit }: any) => {
     const handleClose = () => {
         setOpen(false);
     };
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData({ ...data, [event.target.name]: event.target.value });
     };
     const handleSubmit = () => {

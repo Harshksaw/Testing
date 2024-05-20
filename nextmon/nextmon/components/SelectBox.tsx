@@ -1,4 +1,4 @@
-const SelectCheckbox = ({ id }) => (
+const SelectCheckbox = () => (
     <input
       type="checkbox"
       // checked={selectedContacts.includes(id)}
