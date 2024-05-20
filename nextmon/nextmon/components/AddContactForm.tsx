@@ -19,9 +19,9 @@ const ContactForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 w-96 ">
       <div className="flex flex-col">
-        <label htmlFor="name" className="text-gray-700 font-medium">
+        <label htmlFor="name" className="text-white font-medium">
           Name
         </label>
         <input
@@ -35,7 +35,7 @@ const ContactForm = ({ onSubmit }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="phoneNumber" className="text-gray-700 font-medium">
+        <label htmlFor="phoneNumber" className="text-white font-medium">
           Phone Number
         </label>
         <input
@@ -49,7 +49,7 @@ const ContactForm = ({ onSubmit }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="email" className="text-gray-700 font-medium">
+        <label htmlFor="email" className="text-white font-medium">
           Email
         </label>
         <input
@@ -63,7 +63,7 @@ const ContactForm = ({ onSubmit }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="hobbies" className="text-gray-700 font-medium">
+        <label htmlFor="hobbies" className="text-white font-medium">
           Hobbies
         </label>
         <textarea

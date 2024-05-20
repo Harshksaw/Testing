@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ContactForm  from '../components/AddContactForm';
-import ContactTable  from '../components/Contact';
+import ContactTable  from '../components/ContactTable';
 
 const Contact = () => {
   const [contacts, setContacts] = useState([]);
@@ -10,7 +10,7 @@ const Contact = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get('/api/contacts');
+        const response = await axios.get('http://localhost:3000/api/contacts');
         setContacts(response.data);
       } catch (error) {
         console.error(error);
@@ -57,9 +57,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className=" px-4 py-8  ">
       <h1 className="text-2xl font-bold mb-4">Contact Manager</h1>
+      <div className='flex justify-center items-center bg-gray-900 '>
+
       <ContactForm onSubmit={addContact} />
+      </div>
       <ContactTable
         contacts={contacts}
         onDelete={deleteContact}
