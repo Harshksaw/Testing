@@ -5,7 +5,7 @@ import ContactForm  from '../components/AddContactForm';
 import ContactTable  from '../components/ContactTable';
 
 const Contact = () => {
-  const URL ='https://testing-9ksj.onrender.com'
+  const URL ='http://localhost:3000'
   const [contacts, setContacts] = useState<any>([]);
 
   useEffect(() => {
@@ -21,10 +21,12 @@ const Contact = () => {
     fetchContacts();
   }, []);
 
-  const addContact = async ({newContact }: { newContact: any }) => {
+  const addContact = async ({newContact }: any) => {
     try {
+      console.log(newContact) 
 
       const response = await axios.post(`${URL}/api/contacts`, newContact);
+      console.log(response)
       
       setContacts([...contacts, response.data]); 
     } catch (error) {

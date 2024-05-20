@@ -9,7 +9,7 @@ const ContactForm = ({ onSubmit }:any) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit({ name, phoneNumber, email, hobbies });
+    onSubmit({ newContact: { name, phoneNumber, email, hobbies } });
     setName('');
     setPhoneNumber('');
     setEmail('');

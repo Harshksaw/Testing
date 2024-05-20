@@ -13,6 +13,7 @@ connectDB();
 
 // Parse incoming request bodies
 app.use(bodyParser.json());
+// Allow anyone to make CORS requests
 app.use(cors());
 
 // Get all contacts
