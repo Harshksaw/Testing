@@ -7,7 +7,7 @@ import SelectCheckbox from './SelectBox';
 
 interface TableProps {
   contacts: any[];
-  onDelete: (id: string) => void;
+  onDelete: (id: any) => void;
   onUpdate: (contact: any) => void;
 }
 
@@ -51,7 +51,7 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
   };
 
   return (
-    <table className="table w-full mt-10">
+    <table className="table w-full mt-10 text-yellow-50">
       <thead>
         <tr>
           <th>Select</th>
@@ -69,8 +69,8 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
             <td>
               <SelectCheckbox
                 id={contact._id}
-                // selectedContacts={selectedContacts}
-                // onSelectChange={onSelectChange}
+              // selectedContacts={selectedContacts}
+              // onSelectChange={onSelectChange}
               />
             </td>
             <ContactDataCell contact={contact._id} />
@@ -79,11 +79,23 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
             <ContactDataCell contact={contact.email} />
             <ContactDataCell contact={contact.hobbies} />
             <td>
-              <ActionButtons
-                id={contact._id}
-                handleEditClick={() => handleEditClick(contact._id)}
-                handleDelete={() => handleDelete(contact._id)}
-              />
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => onDelete(contact._id)}
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
+         text-white bg-blue-600 rounded-full hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-red-500"
+                >
+                  {/* Edit */}
+                  {contact._id}
+                </button>
+                <button
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
+         text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-500"
+                  onClick={() => handleDelete(contact._id)}
+                >
+                  Delete
+                </button>
+              </div>
             </td>
           </tr>
         ))}

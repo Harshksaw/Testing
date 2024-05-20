@@ -71,8 +71,9 @@ app.put('/api/contacts/:id', async (req, res) => {
 app.delete('/api/contacts/:id', async (req, res) => {
   try {
     const { id } = req.params;
-
+    console.log(id);
     const deletedContact = await Contact.findByIdAndDelete(id);
+    console.log(deletedContact);
     if (!deletedContact) {
       return res.status(404).json({ message: 'Contact not found' });
     }

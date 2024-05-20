@@ -5,12 +5,13 @@ import ContactForm  from '../components/AddContactForm';
 import ContactTable  from '../components/ContactTable';
 
 const Contact = () => {
+  const URL ='http://localhost:3000'
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/contacts');
+        const response = await axios.get(`${URL}/api/contacts`);
         setContacts(response.data);
       } catch (error) {
         console.error(error);
@@ -47,10 +48,16 @@ const Contact = () => {
     }
   };
 
+
   const deleteContact = async (id) => {
     try {
-      await axios.delete(`/api/contacts/${id}`);
-      setContacts(contacts.filter((contact) => contact._id !== id));
+      console.log(id)
+     const res =  await axios.delete(`${URL}/api/contacts/${id}`);
+      console.log(res)
+
+      
+
+      setContacts(contacts.filter((contact) => contact._id != id));
     } catch (error) {
       console.error(error);
     }
@@ -66,7 +73,7 @@ const Contact = () => {
       <ContactTable
         contacts={contacts}
         onDelete={deleteContact}
-        onUpdate={updateContact} // Assuming ContactTable handles updates
+        onUpdate={updateContact} 
       />
     </div>
   );
