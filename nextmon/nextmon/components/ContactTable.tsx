@@ -15,7 +15,7 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
   const [editData, setEditData] = useState<any>(null);
   const [open, setOpen] = useState<boolean>(false);
 
-  console.log(contacts);
+  const URL ='https://testing-9ksj.onrender.com'
 
   const handleEditClick = (id: string) => {
     const contactToEdit = contacts.find((contact) => contact._id === id);
@@ -25,7 +25,7 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
 
   const handleEdit = async () => {
     try {
-      const res = await axios.put(`http://localhost:3000/api/contacts/${editData._id}`, editData);
+      const res = await axios.put(`${URL}/api/contacts/${editData._id}`, editData);
       if (res.status === 200) {
         onUpdate(res.data);
         setOpen(false);
@@ -39,7 +39,7 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
 
   const handleDelete = async (id: string) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/api/contacts/${id}`);
+      const response = await axios.delete(`${URL}/api/contacts/${id}`);
       if (response.status === 200) {
         onDelete(id);
       } else {
