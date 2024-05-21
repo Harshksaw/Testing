@@ -34,18 +34,11 @@ const Contact = () => {
     }
   };
 
-  const updateContact = async ({updatedContact}:any) => {
+  const updateContact = async () => {
     try {
-      const updatedContacts = await Promise.all(
-        contacts.map(async (contact :any) => {
-          if (contact._id === updatedContact._id) {
-            const response = await axios.put(`${URL}/api/contacts/${contact._id}`, updatedContact);
-            return response.data;
-          }
-          return contact;
-        })
-      );
-      setContacts(updatedContacts);
+      
+      // setContacts(updatedContacts);
+
     } catch (error) {
       console.error(error);
     }
@@ -75,6 +68,7 @@ const Contact = () => {
       </div>
       <ContactTable
         contacts={contacts}
+        setContacts={setContacts}
         onDelete={deleteContact}
         onUpdate={updateContact} 
       />
