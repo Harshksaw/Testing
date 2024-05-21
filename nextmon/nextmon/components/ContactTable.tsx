@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -37,18 +38,6 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
     }
   };
 
-  const handleDelete = async (id: string) => {
-    try {
-      const response = await axios.delete(`${URL}/api/contacts/${id}`);
-      if (response.status === 200) {
-        onDelete(id);
-      } else {
-        console.error('Error deleting contact');
-      }
-    } catch (error) {
-      console.error('Error deleting contact', error);
-    }
-  };
 
   return (
     <table className="table w-full mt-10 text-yellow-50">
@@ -85,16 +74,16 @@ const ContactTable = ({ contacts, onDelete, onUpdate }: TableProps) => {
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
          text-white bg-blue-600 rounded-full hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-red-500"
                 >
-                  {/* Edit */}
-                  {contact._id}
+                  Edit
                 </button>
                 <button
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
-         text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-500"
-                  onClick={() => handleDelete(contact._id)}
-                >
-                  Delete
-                </button>
+  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center
+  text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-500"
+  onClick={() => onDelete(contact._id)}
+>
+  Delete
+
+</button>
               </div>
             </td>
           </tr>

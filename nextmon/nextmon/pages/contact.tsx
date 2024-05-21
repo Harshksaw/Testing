@@ -52,15 +52,15 @@ const Contact = () => {
   };
 
 
-  const deleteContact = async ({id} :any) => {
+  const deleteContact = async (id: any) => {
     try {
       console.log(id)
-     const res =  await axios.delete(`${URL}/api/contacts/${id}`);
+      const res =  await axios.delete(`${URL}/api/contacts/${id}`);
       console.log(res)
-
-      
-
+  
+      console.log(contacts)
       setContacts(contacts.filter((contact : any) => contact._id != id));
+      console.log(contacts)
     } catch (error) {
       console.error(error);
     }
