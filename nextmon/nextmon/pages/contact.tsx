@@ -5,7 +5,7 @@ import ContactForm  from '../components/AddContactForm';
 import ContactTable  from '../components/ContactTable';
 
 const Contact = () => {
-  const URL ='https://localhost:3000'
+  const URL ='https://testing-9ksj.onrender.com'
   const [contacts, setContacts] = useState<any>([]);
 
   useEffect(() => {
